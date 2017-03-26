@@ -1,2 +1,2 @@
 # Memory-game
-Pixi memory game
+Another memory game
