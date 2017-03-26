@@ -1,0 +1,182 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!--<link href="css/blog-post.css" rel="stylesheet">-->
+    
+    <title>Let's Guess Game</title>
+</head>
+
+<body>
+   
+    <!-- Page Content -->
+    <!--<div class="container">-->
+
+
+        <div class="container-fluid">
+
+
+            <!-- Blog Post Content Column -->
+            <div class="col-md-12">
+
+                <div class="page-header">
+                    <h1>Guess Game</h1>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-lg btn-block active" onclick="guessPlace();">  
+                    Start Game
+                </button>
+
+                <!--<button type="submit" class="btn btn-default" onclick="guessPlace();">Start Game</button>-->
+
+                <!-- Title -->
+                <!--<h1>Let's Guess!</h1>-->
+
+                <div id="result-group" style="visibility:hidden">
+                    <h3>Let's guess!</h3>
+                    <h3>Choose the button</h3>
+                    <br/>
+                    <h4 id="guessanswer">Where is the Queen?</h4>
+                    <!--<input type="text" class="form-control" id="guessanswer" value="Where is the Queen?">-->
+                </div>
+                <br />
+                <br />
+
+                <div class="form-group-sm">
+                    <!--<div w3-include-html="addBook.html" id="w3-include-html"></div>-->
+                    <!--<p class="lead">Author: Salman Rushdie</p>
+                    <p class="lead">Address: Treck Road, Kitchener 33</p>
+                    <p class="lead">Price: 100 $</p>-->
+                    <!-- Description -->
+
+                    <!--<div class="row" >
+                        
+
+                            <div class="col-md-1">
+                                
+                                    .col-md-1
+                                    <input type="text" class="form-control col-md-1" id="let1" placeholder="?aaa" >
+                                
+                            </div>
+                            <div class="col-md-1">
+                                .col-md-1
+                                <input type="text" class="form-control col-md-1" id="let2" placeholder="???">
+                            </div>
+
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+
+                        
+                    </div>
+
+                </div>-->
+
+                <!--<br />-->
+                <!--==============================================================================================================-->
+                <!-- Single button -->
+                <!--<div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose two letters to open <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>                        
+                    </ul>
+                </div>-->
+
+                <br />
+                <br />
+                
+                
+                
+                <div id="hide-group" class="btn-group btn-group-justified" role="group" aria-label="..." style="visibility:hidden">
+                    
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" id="btnTower" onclick="getAnswer(this)">Left</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" id="btnQueen" onclick="getAnswer(this)">Middle</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" id="btnKing" onclick="getAnswer(this)">Right</button>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div id="dynamic-group" style="visibility:visible">
+
+                        <button type="button" class="btn btn-primary btn-lg" aria-label="Left Align" id="buttonTower">
+                            <span class="glyphicon glyphicon-tower" aria-hidden="true" id="spanTower"></span> Tower
+                        </button>
+
+                        <button type="button" class="btn btn-danger btn-lg" id="buttonQueen">
+                            <span class="glyphicon glyphicon-queen" aria-hidden="true" id="spanQueen"></span> Queen
+                        </button>
+
+                        <button type="button" class="btn btn-success btn-lg" id="buttonKing">
+                            <span class="glyphicon glyphicon-king" aria-hidden="true" id="spanKing"></span> King
+                        </button>
+                    </div>
+                </div>
+
+
+
+                    <!--<div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">1</button>
+            <button type="button" class="btn btn-default">2</button>
+            <button type="button" class="btn btn-default">3</button>
+        </div>-->
+
+
+
+
+                    <!--<br />-->
+
+                    <!--<button type="submit" class="btn btn-default" onclick="guessPlace();">Save Post</button>-->
+                    <!--onclick="post.savePostWithSub()"-->
+
+
+                </div>
+
+        </div>
+    </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <!--<script type="text/javascript" src="scripts/platformOverrides.js"></script>-->
+        <script type="text/javascript" src="js/guess.js"></script>
+
+        <script>
+            window.onload = function () {
+                //alert("Hi");
+                //gameProcess.gameStageSet(2, 4);
+            };
+        </script>
+
+
+</body>
+
+</html>

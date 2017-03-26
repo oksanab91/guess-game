@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="https://github.com/oksanab91/guess-game.git" version="0.0.1">
+
+    <name>Guess Game</name>
+
+    <description>
+        Memory game
+    </description>
+    <content src="index.html" />
+    <author href="https://github.com/oksanab91/guess-game.git">
+        Oksana Blagutin
+    </author>
+    <access origin="*" />
+	<icon height="48" src="icon.png" width="48"/>
+</widget>
