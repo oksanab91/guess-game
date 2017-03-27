@@ -1,6 +1,9 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+/*#shapessource{    
+    background: url(../images/shapeSheet.json);
+}*/
 
 body {
     -webkit-touch-callout: none;
@@ -35,6 +38,18 @@ body {
     margin-right: auto;
 }
 
+/*.app {
+    background: url(../images/mainShapeMulti.png) no-repeat center top; 
+    position: absolute;             
+    left: 50%;
+    top: 50%;
+    height: 50px;                  
+    width: 225px;                   
+    text-align: center;
+    padding: 180px 0px 0px 0px;     
+    margin: -115px 0px 0px -112px;
+}*/
+
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
@@ -43,7 +58,8 @@ body {
     }
 }
 
-h1 {    
+h1 {
+    /*font-family: HelveticaNeue-Light;*/
     font-size:24px;
     font-weight:normal;
     margin:0px;
@@ -54,6 +70,33 @@ h1 {
 }
 #guessanswer{
     font-weight: bold;    
+}
+
+/*h3 {*/
+    /*font-family: HelveticaNeue-Light;*/
+    /*font-size:10px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    color:crimson;
+}*/
+/*#guessanswer {
+    font-family: HelveticaNeue-Light;
+    font-size:18px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    color:darkgreen;
+}*/
+
+.btn-primary-spacing{
+    margin-right: 2px !important;
+    width:  70px;
+/*margin-bottom: 5px !important;*/
 }
 
 .event {
@@ -86,4 +129,8 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
-
+ 
+/*.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinit*/
+

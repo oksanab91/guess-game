@@ -70,16 +70,20 @@ var guessPlace = function () {
     var bt = null;
     swapTimer(bt, randomCount); 
 
-    //Increase the ind for the next button to swith in each try ??
+    //Increase the ind for the next button to swith in each try
     startRandomButton++;
 };
 
 //Swap the buttons in the html dynamic-group 
 var swapButtons = function (bt) {
     if (dynamicgroup != undefined) {
-        var btNew = bt.cloneNode(true);
-        dynamicgroup.removeChild(bt);
-        dynamicgroup.appendChild(bt);
+        //var btNew = bt.cloneNode(true);        
+        try {
+            dynamicgroup.removeChild(bt);
+            dynamicgroup.appendChild(bt);
+        } catch (e) {
+            console.log(e.message);
+        }        
     }    
 };
 

@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">    
-        <meta name="format-detection" content="telephone=no">
-		<!--<base href="/" target="_blank">-->
+        <meta name="format-detection" content="telephone=no">        
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <!-- Bootstrap Core CSS -->
@@ -36,44 +35,44 @@
                 <!--Messages group-->
                 <div class="row center-block">
                     <div id="result-group" style="visibility:hidden">
-                        <h2 class="text-primary">Let's guess!</h2>
-                        <h3 class="text-success"><strong>Choose the button</strong></h3>                    
+                        <h2 class="text-primary text-center">Let's guess!</h2>
+                        <h3 class="text-success text-center"><strong>Choose the button</strong></h3>                    
                     </div>
                 </div>
                 <br />
 
                 <!--Result of the game message-->
                 <div class="row center-block">                
-                    <h4 id="guessanswer" class="text-info"><strong> </strong></h4>                
-                </div>
+                    <h4 id="guessanswer" class="text-info text-center"><strong> </strong></h4>                                
+                </div>                
                 <br />
                 <br />
                 <br />
                 <br />
 
                 <!--User choice-->
-                <div class="row center-block" id="answer-group" style="visibility:hidden">
-                    <button type="button" class="btn btn-warning btn-lg" aria-label="Left Align" id="1" onclick="getAnswer(this)">
+                <div class="col-xs-12 col-xs-offset-1" id="answer-group" style="visibility:hidden">
+                    <button type="button" class="btn btn-warning btn-sm btn-primary-spacing" aria-label="Left Align" id="1" onclick="getAnswer(this)">
                         <span class="glyphicon glyphicon-hand-left" aria-hidden="true" id="spanbtnQueen"></span> Left
                     </button>
-                    <button type="button" class="btn btn-warning btn-lg" aria-label="Left Align" id="2" onclick="getAnswer(this)">
+                    <button type="button" class="btn btn-warning btn-sm btn-primary-spacing" aria-label="Left Align" id="2" onclick="getAnswer(this)">
                         <span class="glyphicon glyphicon-hand-up" aria-hidden="true" id="spanbtnKing"></span> Middle
                     </button>
-                    <button type="button" class="btn btn-warning btn-lg" aria-label="Left Align" id="3" onclick="getAnswer(this)">
+                    <button type="button" class="btn btn-warning btn-sm btn-primary-spacing" aria-label="Left Align" id="3" onclick="getAnswer(this)">
                         <span class="glyphicon glyphicon-hand-right" aria-hidden="true" id="spanbtnTower"></span> Right
                     </button>
                 </div>
                 <!--User choice end-->
-                <!--Swapping buttons-->
-                <div class="row center-block" id="dynamic-group" style="visibility:visible">
+                <!--Swapping buttons-->                
+                <div class="col-xs-12 col-xs-offset-1" id="dynamic-group" style="visibility:visible">
                     <!--<div class="col-sm-offset-8 col-sm-5">-->
-                    <button type="button" class="btn btn-primary btn-lg" id="buttonTower">
+                    <button type="button" class="btn btn-primary btn-sm btn-primary-spacing" id="buttonTower">
                         <span class="glyphicon glyphicon-tower" aria-hidden="true" id="spanTower"></span> Tower
                     </button>
-                    <button type="button" class="btn btn-success btn-lg" id="buttonKing">
+                    <button type="button" class="btn btn-success btn-sm btn-primary-spacing" id="buttonKing">
                         <span class="glyphicon glyphicon-king" aria-hidden="true" id="spanKing"></span> King
                     </button>
-                    <button type="button" class="btn btn-danger btn-lg" id="buttonQueen">
+                    <button type="button" class="btn btn-danger btn-sm btn-primary-spacing" id="buttonQueen">
                         <span class="glyphicon glyphicon-queen" aria-hidden="true" id="spanQueen"></span> Queen
                     </button>                
                 </div>
@@ -86,7 +85,8 @@
         <!--<script && sources>-->
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="js/guess.js"></script>
 
         <script>
