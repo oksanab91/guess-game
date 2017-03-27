@@ -1,39 +1,80 @@
 ﻿
+//Create by Blagutin O. on 2017-03-26
+
+//Display buttons with pictures
 var dynamicgroup = undefined;
-var hiddengroup = undefined;
+//Display buttons for guessing
 var answergroup = undefined;
+//Display messages
+var resultgroup = undefined;
+//Display the result of the game
 var answertxt = undefined;
-var btTower = document.getElementById("buttonTower");
-var btQueen = document.getElementById("buttonQueen");
-var btKing = document.getElementById("buttonKing");
-var i = 0;
+//html dynamic group original appearance
+var originButtonsSetting = undefined;
 
-var guessPlace = function () {
+//Which button to swith in each try
+var startRandomButton = 0;
 
-    var classtower = "glyphicon glyphicon-tower";
-    var classqueen = "glyphicon glyphicon-queen";
-    var classking = "glyphicon glyphicon-king";
+//Buttons in html dynamic-group
+var btTower = undefined;
+var btQueen = undefined;
+var btKing = undefined;
 
-    hiddengroup = document.getElementById("hide-group");
-    dynamicgroup = document.getElementById("dynamic-group");
-    answergroup = document.getElementById("result-group");
-    answertxt = document.getElementById("guessanswer");
-    answertxt.innerHTML = "Where is the Queen?";
+//Initialization
+var init = function () {
+ 
+    //html dynamic group original appearance
+    var group = document.getElementById("dynamic-group");
+    originButtonsSetting = group.innerHTML;
 
-    dynamicgroup.style.visibility = 'visible';
-    hiddengroup.style.visibility = 'hidden';
-    answergroup.style.visibility = 'hidden';
-    //answertxt.style.visibility = 'hidden';
+    //Buttons in html dynamic-group
+    btTower = document.getElementById("buttonTower");
+    btQueen = document.getElementById("buttonQueen");
+    btKing = document.getElementById("buttonKing");
 
-    //var btTower = document.getElementById("buttonTower");
-    //var btQueen = document.getElementById("buttonQueen");
-    //var btKing = document.getElementById("buttonKing");
-    var bt = null;
-
-    swapTimer(bt, 5);
-
+    startRandomButton = 0;
 };
 
+//Run the game - swap the buttons
+var guessPlace = function () {
+
+    //Set the groups of the html elements and their properties
+    answergroup = document.getElementById("answer-group");
+    dynamicgroup = document.getElementById("dynamic-group");
+    resultgroup = document.getElementById("result-group");    
+
+    //Reset html dynamic group
+    dynamicgroup.innerHTML = originButtonsSetting;
+
+    //Buttons of html dynamic-group
+    btTower = document.getElementById("buttonTower");
+    btQueen = document.getElementById("buttonQueen");
+    btKing = document.getElementById("buttonKing");
+
+    answertxt = document.getElementById("guessanswer");
+    answertxt.innerHTML = "";
+    
+    dynamicgroup.style.visibility = 'visible';
+    answergroup.style.visibility = 'hidden';
+    resultgroup.style.visibility = 'hidden';
+      
+    //Start timer and swapping the buttons
+    var randomCount = Math.floor((Math.random() * 10) + 1);
+    if (randomCount < 3) {
+        randomCount = 3;
+    }
+    //Prevent full circule
+    if (3 - (randomCount % 3) === 1) {
+        randomCount++;
+    }
+    var bt = null;
+    swapTimer(bt, randomCount); 
+
+    //Increase the ind for the next button to swith in each try ??
+    startRandomButton++;
+};
+
+//Swap the buttons in the html dynamic-group 
 var swapButtons = function (bt) {
     if (dynamicgroup != undefined) {
         var btNew = bt.cloneNode(true);
@@ -42,63 +83,104 @@ var swapButtons = function (bt) {
     }    
 };
 
-
-
+//Timer and swapping buttons in the html dynamic-group
+//Each third try the pattern to choose the button is changed
 var swapTimer = function (bt, i) {
     
     setTimeout(function () {
-        
-        if (i --) {
-            switch (i) {
+       
+        //Set the button to move
+        if (i--) {
+            var ind = i < 3 ? i : (i % 3);
+
+            switch (ind) {
+                case 0:
+                    if ((startRandomButton % 3) === 0)
+                    { bt = btTower; }
+                    else if ((startRandomButton % 3) === 1)
+                    { bt = btKing; }
+                    else
+                    { bt = btQueen; }
+
+                    break;
                 case 1:
-                    bt = btTower;
+                    if ((startRandomButton % 3) === 0)
+                    { bt = btKing; }
+                    else if ((startRandomButton % 3) === 1)
+                    { bt = btQueen; }
+                    else
+                    { bt = btTower; }
+
                     break;
                 case 2:
-                    bt = btQueen;
-                    break;
-                case 3:
-                    bt = btKing;
-                    break;
-                case 4:
-                    bt = btTower;
-                    break;
+                    if ((startRandomButton % 3) === 0)
+                    { bt = btQueen; }
+                    else if ((startRandomButton % 3) === 1)
+                    { bt = btTower; }
+                    else
+                    { bt = btKing; }
+
+                    break;                
                 default:
                     break;
             }
 
-            swapButtons(bt);
-            swapTimer(bt, i);
+            //Swap the button with another
+            if (bt != null) {
+                swapButtons(bt);
+                swapTimer(bt, i);
+            }
         }
         else {
+            //If completed, hide the html dynamic-group
             hideButtons();
         }
-    }, 1000);
+    }, 500);
 
 };
 
+//Hide and display html groups
 var hideButtons = function () {
 
     dynamicgroup.style.visibility = 'hidden';
-    hiddengroup.style.visibility = 'visible';    
-    answergroup.style.visibility = 'visible';
-
-    //var btnId = "buttonTower";
-    //bt = document.createElement("button")
-    //bt.className = "btn btn-warning";
-    //bt.id = btnId;
-    ////bt.innerHTML = "<button type='button' class='btn btn-default'></button> id='" + btnId  + "'";
-    //bt.textContent = "         ";
-
-    //dynamicgroup.removeChild(btTower);
-    //dynamicgroup.appendChild(bt);
+    answergroup.style.visibility = 'visible';    
+    resultgroup.style.visibility = 'visible';
+    answertxt.innerHTML = "Where is the Queen?";
 };
 
-var getAnswer = function (data) {
-    if (data.id = "btnQueen") {
-        answertxt = document.getElementById("guessanswer");
-        answertxt.innerHTML = "Congratulations! You won!";        
+//Check the answer
+var getAnswer = function (btnData) {
+   
+    var queenInd = findItemNode(btQueen);
+
+    //Compare Queen button id with the selected answer button
+    //The answer is correct
+    if (queenInd + 1 === parseInt(btnData.id)) {        
+        answertxt.innerHTML = "Congratulations! You won!";
+    //The answer is incorrect
     } else {
-        answertxt.innerHTML = "Nice try! But Queen is in another place!";
+        answertxt.innerHTML = "Nice try! But the Queen is in another place";
     }
-    hiddengroup.style.visibility = 'hidden';
+
+    //Set global index
+    lastResultInd = queenInd;
+
+    //Hide buttons and not relevant messages
+    answergroup.style.visibility = 'hidden';
+    resultgroup.style.visibility = 'hidden';
+};
+
+//Return current index of the node (button) 
+var findItemNode = function (node) {    
+    var itemIndex = 0;
+    var i = 0;
+
+    while (i < dynamicgroup.children.length && itemIndex === 0) {
+        if (dynamicgroup.children.item(i) === node) {
+            itemIndex = i;
+        }
+        i++;
+    }
+    
+    return itemIndex;
 }
