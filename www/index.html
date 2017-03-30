@@ -44,21 +44,25 @@
 
                 <!--Result of the game message-->
                 <div class="row center-block">                
-                    <h4 id="guessanswer" class="text-info text-center"><strong> </strong></h4>                                
+                    <h4 id="guessanswer" class="text-info text-center" style="color:brown"><strong> </strong></h4>                                
                 </div>                
+                <br />
                 <br />
                 <br />
                 
                 <div class="row center-block" style="width:auto; padding-left: 2%">
                     <!--User choice-->
                     <div id="answer-group" style="visibility:hidden; width:auto">
-                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="1" onclick="getAnswer(this)">
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="1" 
+                        onclick="getAnswer(this)" style="background-color: #ac3973; border-color:#ac3973">
                             <span class="glyphicon glyphicon-hand-left" aria-hidden="true" id="spanbtnQueen"></span> Left
                         </button>
-                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="2" onclick="getAnswer(this)">
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="2" 
+                        onclick="getAnswer(this)" style="background-color: #ac3973; border-color:#ac3973">
                             <span class="glyphicon glyphicon-hand-up" aria-hidden="true" id="spanbtnKing"></span> Middle
                         </button>
-                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="3" onclick="getAnswer(this)">
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="3" 
+                        onclick="getAnswer(this)" style="background-color: #ac3973; border-color:#ac3973">
                             <span class="glyphicon glyphicon-hand-right" aria-hidden="true" id="spanbtnTower"></span> Right
                         </button>
                     </div>
