@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">    
-        <meta name="format-detection" content="telephone=no">        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <!-- Bootstrap Core CSS -->
@@ -47,36 +48,37 @@
                 </div>                
                 <br />
                 <br />
-                <br />
-                <br />
-
-                <!--User choice-->
-                <div class="col-xs-12" id="answer-group" style="visibility:hidden">
-                    <button type="button" class="btn btn-warning btn-md btn-primary-spacing" aria-label="Left Align" id="1" onclick="getAnswer(this)">
-                        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" id="spanbtnQueen"></span> Left
-                    </button>
-                    <button type="button" class="btn btn-warning btn-md btn-primary-spacing" aria-label="Left Align" id="2" onclick="getAnswer(this)">
-                        <span class="glyphicon glyphicon-hand-up" aria-hidden="true" id="spanbtnKing"></span> Middle
-                    </button>
-                    <button type="button" class="btn btn-warning btn-md btn-primary-spacing" aria-label="Left Align" id="3" onclick="getAnswer(this)">
-                        <span class="glyphicon glyphicon-hand-right" aria-hidden="true" id="spanbtnTower"></span> Right
-                    </button>
+                
+                <div class="row center-block" style="width:auto; padding-left: 2%">
+                    <!--User choice-->
+                    <div id="answer-group" style="visibility:hidden; width:auto">
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="1" onclick="getAnswer(this)">
+                            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" id="spanbtnQueen"></span> Left
+                        </button>
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="2" onclick="getAnswer(this)">
+                            <span class="glyphicon glyphicon-hand-up" aria-hidden="true" id="spanbtnKing"></span> Middle
+                        </button>
+                        <button type="button" class="btn btn-warning btn-lg btn-primary-spacing" aria-label="Left Align" id="3" onclick="getAnswer(this)">
+                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true" id="spanbtnTower"></span> Right
+                        </button>
+                    </div>
+                    <!--User choice end-->
+                    
+                    <!--Swapping buttons-->
+                    <div id="dynamic-group" style="visibility:visible; width:auto">
+                        <!--<div class="col-sm-offset-8 col-sm-5">-->
+                        <button type="button" class="btn btn-primary btn-lg btn-primary-spacing" id="buttonTower">
+                            <span class="glyphicon glyphicon-tower" aria-hidden="true" id="spanTower"></span> Tower
+                        </button>
+                        <button type="button" class="btn btn-success btn-lg btn-primary-spacing" id="buttonKing">
+                            <span class="glyphicon glyphicon-king" aria-hidden="true" id="spanKing"></span> King
+                        </button>
+                        <button type="button" class="btn btn-danger btn-lg btn-primary-spacing" id="buttonQueen">
+                            <span class="glyphicon glyphicon-queen" aria-hidden="true" id="spanQueen"></span> Queen
+                        </button>
+                    </div>
+                    <!--Swapping buttons end-->
                 </div>
-                <!--User choice end-->
-                <!--Swapping buttons-->                
-                <div class="col-xs-12" id="dynamic-group" style="visibility:visible">
-                    <!--<div class="col-sm-offset-8 col-sm-5">-->
-                    <button type="button" class="btn btn-primary btn-md btn-primary-spacing" id="buttonTower">
-                        <span class="glyphicon glyphicon-tower" aria-hidden="true" id="spanTower"></span> Tower
-                    </button>
-                    <button type="button" class="btn btn-success btn-md btn-primary-spacing" id="buttonKing">
-                        <span class="glyphicon glyphicon-king" aria-hidden="true" id="spanKing"></span> King
-                    </button>
-                    <button type="button" class="btn btn-danger btn-md btn-primary-spacing" id="buttonQueen">
-                        <span class="glyphicon glyphicon-queen" aria-hidden="true" id="spanQueen"></span> Queen
-                    </button>                
-                </div>
-                <!--Swapping buttons end-->
             </div>
             <!--main body end-->       
         </div>

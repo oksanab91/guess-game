@@ -94,9 +94,10 @@ h1 {
 }*/
 
 .btn-primary-spacing{
-    margin-right: 2px !important;
-    width:  90px;
-/*margin-bottom: 5px !important;*/
+    position: relative;
+    margin-right: 1% !important;
+    font-size: 15px !important;
+    width: 31%; 
 }
 
 .event {
